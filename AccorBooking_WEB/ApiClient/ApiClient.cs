@@ -31,7 +31,7 @@ namespace AccorBooking_WEB.Api
         /// </summary>  
         private async Task<T> GetAsync<T>(Uri requestUrl)
         {
-            //TEST
+            //TEST2
             addHeaders();
             var response = await _httpClient.GetAsync(requestUrl, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();
