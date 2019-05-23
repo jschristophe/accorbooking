@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AzureQueueManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccorBooking_DAL\AccorBooking_DAL.csproj" />
+    <ProjectReference Include="..\AccorBooking_Entity\AccorBooking_Entity.csproj" />
+  </ItemGroup>
+
+</Project>
