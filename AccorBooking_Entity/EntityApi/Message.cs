@@ -23,7 +23,6 @@ namespace AccorBooking_Entity.EntityApi
         [DataMember(Name = "Data")]
         public T Data { get; set; }
 
-
         [DataMember(Name = "Version")]
         public string Version { get; set; }
 
