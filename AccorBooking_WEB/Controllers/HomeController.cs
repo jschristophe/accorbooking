@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AccorBooking_WEB.Models;
 using AccorBooking_WEB.Api;
+using System.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace AccorBooking_WEB.Controllers
 {
     public class HomeController : Controller
     {
+        private AppSettings AppSettings { get; set; }
+
+        public HomeController(IOptions<AppSettings> settings)
+        {
+            AppSettings = settings.Value;
+        }
+
         public IActionResult Index()
         {
-            var apiClient = new ApiClient(new Uri("http://localhost:46026"));
+            var apiClient = new ApiClient(new Uri(AppSettings.BaseUrlCatalogApi));
             var products = apiClient.GetProducts().Result;
             return View();
         }
