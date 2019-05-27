@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AccorBooking.Entity;
+using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -10,8 +12,9 @@ namespace AccorBooking_Entity.EntityApi
     {
         public Message()
         {
-            IsSuccess = true;
-            Date = DateTime.Now;
+            
+
+            
         }
 
         [DataMember(Name = "IsSuccess")]
@@ -26,14 +29,19 @@ namespace AccorBooking_Entity.EntityApi
         [DataMember(Name = "Version")]
         public string Version { get; set; }
 
-        [DataMember(Name = "ServerName")]
-        public string ServerName { get; set; }
+        //[DataMember(Name = "HostName")]
+        //public string HostName { get; set; }
 
-        [DataMember(Name = "ServerIP")]
-        public string ServerIP { get; set; }
+        //[DataMember(Name = "ListHostNameIP")]
+        //public List<string> ListHostNameIP { get; set; }
+
+        [DataMember(Name = "ServerInfo")]
+        public ServerInformation ServerInfo { get; set; }
 
         [DataMember(Name = "Date")]
         public DateTime Date { get; set; }
+
+
 
     }
 }

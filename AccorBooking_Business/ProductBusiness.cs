@@ -11,11 +11,18 @@ namespace AccorBooking.Business
 {
     public class ProductBusiness
     {
-        public static List<Product> GetProducts()
+        //public static List<Product> GetProducts()
+        //{
+        //    var result = ProductDAL.GetProducts();
+        //    return result;
+        //}
+
+        public static List<Product> GetProducts(int pageNumber, int numberObjectPage)
         {
-            var result = ProductDAL.GetProducts();
+            var result = ProductDAL.GetProducts(pageNumber, numberObjectPage);
             return result;
         }
+        
 
         public static void ProcessOrder(int orderId)
         {

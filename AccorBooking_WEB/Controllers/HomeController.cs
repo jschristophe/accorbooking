@@ -8,6 +8,8 @@ using AccorBooking_WEB.Models;
 using AccorBooking_WEB.Api;
 using System.Configuration;
 using Microsoft.Extensions.Options;
+using AccorBooking_Entity;
+using AccorBooking.Entity;
 
 namespace AccorBooking_WEB.Controllers
 {
@@ -22,9 +24,28 @@ namespace AccorBooking_WEB.Controllers
 
         public IActionResult Index()
         {
-            var apiClient = new ApiClient(new Uri(AppSettings.BaseUrlCatalogApi));
-            var products = apiClient.GetProducts().Result;
-            return View();
+            var productViewModel = new ProductViewModel();
+            productViewModel.ListServerInfo = new List<ServerInformation>();
+
+            var serverInfo = ServerInfoManager.GetServerInfo();
+            serverInfo.ServiceName = "FRONT_API";
+            productViewModel.ListServerInfo.Add(serverInfo);
+
+            try
+            {
+                var apiClient = new ApiClient(new Uri(AppSettings.BaseUrlCatalogApi));
+                var products = apiClient.GetProducts().Result.Data;
+
+                var serverInfoApi = apiClient.GetProducts().Result.ServerInfo;
+                productViewModel.ListServerInfo.Add(serverInfoApi);
+            }
+            catch (Exception e)
+            {
+
+                
+            }
+            
+            return View(productViewModel);
         }
 
         public IActionResult About()

@@ -7,6 +7,7 @@ using AccorBooking.Entity;
 using AccorBooking_Entity.EntityApi;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using AccorBooking.Entity;
 
 namespace AccorBooking_API_HOTEL.Controllers
 {
@@ -18,8 +19,14 @@ namespace AccorBooking_API_HOTEL.Controllers
         [HttpGet("{pageNumber}/{numberObjectPage}")]
         public ActionResult<string> Get(int pageNumber, int numberObjectPage)
         {
+
             var message = new Message<List<Product>>();
-            var products = ProductBusiness.GetProducts().Skip(numberObjectPage * pageNumber).Take(numberObjectPage).ToList();
+            message.IsSuccess = true;
+            message.Date = DateTime.Now;
+
+            message.ServerInfo = ServerInfoManager.GetServerInfo();
+            message.ServerInfo.ServiceName = "CATALOG_API";
+            var products = ProductBusiness.GetProducts(pageNumber, numberObjectPage).ToList();
 
             message.Data = products; // JsonConvert.SerializeObject();
             

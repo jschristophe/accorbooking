@@ -92,11 +92,11 @@ namespace AccorBooking_WEB.Api
 
 
 
-        public async Task<List<Product>> GetProducts()
+        public async Task<Message<List<Product>>> GetProducts()
         {
-            var requestUrl = CreateRequestUri("api/product");
+            var requestUrl = CreateRequestUri("api/product/0/10");
             var result = await GetAsync<Message<List<Product>>>(requestUrl);
-            var products = result.Data;
+            var products = result;
 
             return products;
         }

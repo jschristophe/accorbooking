@@ -18,7 +18,7 @@ namespace AccorBooking.DAL
             context = new AccorBookingContext(); // ServiceProviderServiceExtensions.GetService<AccorBookingContext>();
         }
 
-        public static List<Product> GetProducts()
+        public static List<Product> GetProducts(int pageNumber , int numberObjectPage)
         {
 
             
@@ -26,7 +26,7 @@ namespace AccorBooking.DAL
 
             if(listProduct == null)
             {                
-                var lst = context.Product; // .Include(p => p.ProductDocument).Include(p => p.ProductModel).Include(p => p.ProductSubcategory).Include(p => p.UnitMeasure).Include(p => p.UnitMeasure1);
+                var lst = context.Product.Skip(numberObjectPage * pageNumber).Take(numberObjectPage); // .Include(p => p.ProductDocument).Include(p => p.ProductModel).Include(p => p.ProductSubcategory).Include(p => p.UnitMeasure).Include(p => p.UnitMeasure1);
                 listProduct = lst.ToList();
                 AzureCacheManager.Set("listProduct", listProduct);
             }
