@@ -23,7 +23,7 @@ kind: Service
 metadata:
   name: catalog-service
 spec:
-  loadBalancerIP: 52.143.154.218
+  #loadBalancerIP: 52.143.154.218
   type: LoadBalancer
   ports:
   - port: 80

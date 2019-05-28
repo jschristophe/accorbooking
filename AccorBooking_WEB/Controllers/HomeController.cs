@@ -24,6 +24,7 @@ namespace AccorBooking_WEB.Controllers
 
         public IActionResult Index()
         {
+            
             var productViewModel = new ProductViewModel();
             
 
@@ -34,6 +35,7 @@ namespace AccorBooking_WEB.Controllers
 
                 var serverInfoApi = apiClient.GetProducts().Result.ServerInfo;
                 productViewModel.ListServerInfo.Add(serverInfoApi);
+                productViewModel.ListProduct = products;
             }
             catch (Exception e)
             {

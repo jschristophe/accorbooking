@@ -9,6 +9,6 @@ namespace AccorBooking_WEB.Models
 {
     public class ProductViewModel : ViewModelBase
     {
-        
+        public List<Product> ListProduct { get; set; }
     }
 }

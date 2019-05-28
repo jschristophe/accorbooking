@@ -34,18 +34,18 @@ namespace AccorBooking.Entity
         [StringLength(50)]
         public string Name { get; set; }
 
-        //[Required]
-        //[StringLength(25)]
-        //public string ProductNumber { get; set; }
+        [Required]
+        [StringLength(25)]
+        public string ProductNumber { get; set; }
 
         //public bool MakeFlag { get; set; }
 
         //public bool FinishedGoodsFlag { get; set; }
 
-        //[StringLength(15)]
-        //public string Color { get; set; }
+        [StringLength(15)]
+        public string Color { get; set; }
 
-        //public short SafetyStockLevel { get; set; }
+        public short SafetyStockLevel { get; set; }
 
         //public short ReorderPoint { get; set; }
 
