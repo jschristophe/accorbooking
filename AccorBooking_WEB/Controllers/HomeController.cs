@@ -25,11 +25,7 @@ namespace AccorBooking_WEB.Controllers
         public IActionResult Index()
         {
             var productViewModel = new ProductViewModel();
-            productViewModel.ListServerInfo = new List<ServerInformation>();
-
-            var serverInfo = ServerInfoManager.GetServerInfo();
-            serverInfo.ServiceName = "FRONT_API";
-            productViewModel.ListServerInfo.Add(serverInfo);
+            
 
             try
             {

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace AccorBooking_WEB.Models
 {
-    public class ProductViewModel
+    public class ProductViewModel : ViewModelBase
     {
-        public List<ServerInformation> ListServerInfo { get; set; }
+        
     }
 }

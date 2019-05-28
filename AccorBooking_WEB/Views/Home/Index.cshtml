@@ -5,24 +5,8 @@
 }
 
 
-<div class="row">
 
-    @foreach (var server in Model.ListServerInfo)
-    {
-        <div class="col-md-2">
 
-            <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">@server.ServiceName</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">@server.ServerName</h5>
+    
 
-                    @foreach (var address in server.ListServerIP)
-                    {
-                        <p class="card-text">@address</p>
-                    }
-                </div>
-            </div>
-        </div>
-    }
 
-</div>

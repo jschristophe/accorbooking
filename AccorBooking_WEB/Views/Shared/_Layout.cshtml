@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@model ViewModelBase
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -47,6 +52,48 @@
         <hr />
         <footer>
             <p>&copy; 2019 - AccorBooking_WEB</p>
+
+            <div class="row">
+                @foreach (var server in Model.ListServerInfo)
+                {
+                    <div class="col-md-2">
+
+                        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header">@server.ServiceName</div>
+                            <div class="card-body text-primary">
+                                <h5 class="card-title">@server.ServerName</h5>
+
+                                @foreach (var address in server.ListServerIP)
+                                {
+                                    <p class="card-text">@address</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="row">
+                
+
+                <div class="col-md-6">
+
+                    <div class="card border-primary" >
+                        <div class="card-header">AppSetting</div>
+                        <div class="card-body text-primary">
+                            
+
+                            @foreach (var child in Configuration.GetSection("AppSettings").GetChildren())
+                            {
+                                <p class="card-text">@child.Key : @child.Value</p> 
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
         </footer>
     </div>
 
