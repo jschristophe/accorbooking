@@ -25,7 +25,7 @@ namespace AccorBooking_API_HOTEL.Controllers
             message.Date = DateTime.Now;
 
             message.ServerInfo = ServerInfoManager.GetServerInfo();
-            message.ServerInfo.ServiceName = "CATALOG_API";
+            message.ServerInfo.ServiceName = "CATALOG_API_V2";
             var products = ProductBusiness.GetProducts(pageNumber, numberObjectPage).ToList();
 
             message.Data = products; // JsonConvert.SerializeObject();
