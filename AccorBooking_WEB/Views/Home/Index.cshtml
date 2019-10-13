@@ -20,15 +20,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var product in Model.ListProduct)
+                    @if (Model.ListProduct != null)
                     {
-                        <tr>
-                            <th scope="row">@product.ProductID</th>
-                            <th scope="row">@product.Name</th>
-                            <td>@product.ProductNumber</td>
-                            <td>@product.SafetyStockLevel</td>
-                            <td>@product.Color</td>
-                        </tr>
+                        @foreach (var product in Model.ListProduct)
+                        {
+                            <tr>
+                                <th scope="row">@product.ProductID</th>
+                                <th scope="row">@product.Name</th>
+                                <td>@product.ProductNumber</td>
+                                <td>@product.SafetyStockLevel</td>
+                                <td>@product.Color</td>
+                            </tr>
+                        }
                     }
 
                 </tbody>
@@ -44,15 +47,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var product in Model.ListProduct)
+
+                    @if (Model.ListProduct != null)
                     {
-                        <tr>
-                            <th scope="row">@product.ProductID</th>
-                            <th scope="row">@product.Name</th>
-                        </tr>
+                        @foreach (var product in Model.ListProduct)
+                        {
+                            <tr>
+                                <th scope="row">@product.ProductID</th>
+                                <th scope="row">@product.Name</th>
+                            </tr>
+                        }
                     }
 
-                </tbody>
+                    </tbody>
             </table>
         </div>
     </div>
