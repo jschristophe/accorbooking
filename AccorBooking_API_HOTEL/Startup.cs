@@ -40,6 +40,8 @@ namespace AccorBooking_API_HOTEL
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            var pathBase = "appline-catalog";
+            app.UsePathBase($"/{pathBase.TrimStart('/')}");
             if (env.IsDevelopment())    
             {
                 app.UseDeveloperExceptionPage();
